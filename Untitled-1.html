@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div class="sanjiao"></div> -->
+    <div id="app">
+        <input v-model="name" placeholder="姓名" />
+        <input v-model="age" placeholder="年龄" />
+        <div>姓名:{{name}}</div>
+        <div>姓名:{{age}}</div>
+    </div>
+    <button onclick="text()">123123</button>
+    <div class="donghua">
+
+    </div>
+</body>
+
+
+<style>
+    body {
+        min-height: 1000px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donghua {
+        width: 20px;
+        height: 20px;
+        background: #ff0000;
+        transition: all 2s ease;
+        /* animation: rotate 2s infinite;
+        -webkit-animation: donghua 2s infinite; */
+    }
+
+    .donghua:hover {
+        width: 300px;
+        height: 200px;
+    }
+
+    @keyframes donghua {
+        0% {
+            transform: rotateY(0deg);
+        }
+
+        100% {
+            transform: rotateY(-360deg);
+        }
+    }
+
+    @-webkit-keyframes donghua {
+        0% {
+            transform: rotateY(0deg);
+        }
+
+        100% {
+            transform: rotateY(-360deg);
+        }
+    }
+
+    .sanjiao {
+        width: 0;
+        height: 0;
+        border-top: 40px solid transparent;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 40px solid #ff0000;
+    }
+
+
+
+    .pin>.top {
+        width: 100%;
+        background: #ff0000;
+    }
+
+
+
+    .pin>.left {
+        display: inline-block;
+        font-size: 0;
+        height: 20px;
+        width: 50%;
+        background: green;
+    }
+
+    .pin>.right {
+        display: inline-block;
+        width: 50%;
+        font-size: 0;
+
+        height: 20px;
+        background: yellow;
+    }
+</style>
+
+<script src="./MVVM.js"></script>
+<script src="./text.js"></script>
+<script src="someFun.js"></script>
+<script src="./promise.js"></script>
+<script>
+</script>
+<script>
+    const app = new MVVM('#app', {
+        name: '',
+        age: ''
+    })
+
+    let primise = new PromiseObj((resolve,reject)=>{
+        resolve(1)
+        
+    }).then((res)=>{
+        console.log(res,1);
+    }).then((res)=>{
+        console.log(res,2);
+    })
+    .then((res)=>{
+        console.log(res,3);
+    })
+    console.log(primise,'primise');
+  
+
+
+</script>
+
+</html>
