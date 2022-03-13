@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<link href="picture.css" type="text/css" rel="stylesheet" />
 
 <body>
     <!-- <div class="sanjiao"></div> -->
@@ -17,8 +18,34 @@
         <div>姓名:{{age}}</div>
     </div>
     <button onclick="text()">123123</button>
-    <div class="donghua">
-
+    <div class="container">
+        <!--  图片列表  -->
+        <ul class="ul-img">
+          <li class="li-img">1</li>
+          <li class="li-img">2</li>
+          <li class="li-img">3</li>
+          <li class="li-img">4</li>
+          <li class="li-img">5</li>
+        </ul>
+    
+        <!--  上一张、下一张按钮  -->
+        <div class="prev">
+          <span>&lt;</span>
+        </div>
+        <div class="next">
+          <span>&gt;</span>
+        </div>
+    
+        <!-- 数字切换按钮 -->
+        <div class="num-box">
+          <ul class="num-ul">
+            <li data-index="0">1</li>
+            <li data-index="1">2</li>
+            <li data-index="2">3</li>
+            <li data-index="3">4</li>
+            <li data-index="4">5</li>
+          </ul>
+        </div>
     </div>
 </body>
 
@@ -104,6 +131,7 @@
 <script src="./text.js"></script>
 <script src="someFun.js"></script>
 <script src="./promise.js"></script>
+<script src="./suanfa.js"></script>
 <script>
 </script>
 <script>
@@ -124,6 +152,25 @@
         console.log(res,3);
     })
     console.log(primise,'primise');
+
+
+    function longLength(str){
+        // return str.split(' ').map(item=>item.length).sort((a,b)=>a-b).pop();
+        return str.split(' ').reduce((x,y)=>Math(x,y.length),0)
+    }
+
+    let textArr = ['--name','送啊','--age','33','--CAR','芜湖']
+
+    function changeToObj(arr){
+        return arr.reduce((prev,cur,index,CurArr)=>{
+            if(cur.includes('--')){
+                let cura = cur.slice(2)
+                prev[cura] = CurArr[index+1]
+            }
+
+            return prev;
+        },{})
+    }
   
 
 

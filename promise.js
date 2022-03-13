@@ -117,6 +117,8 @@ let promise4 = Promise.resolve(4)
 
 
 
+
+
 //all实现
 Promise.all = function(array){
     let allData = [];

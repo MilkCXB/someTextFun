@@ -1,31 +1,46 @@
 //深拷贝
+// function deepCopy(obj){
+//     let newObj = null;
+//     if(typeof(obj)=='object' && obj !== null){
+//         newObj = Array.isArray(obj)?[]:{};
+//         for(key in obj){
+//             newObj[key] = deepCopy(obj[key])
+//         }
+//     }else{
+//       newObj = obj;
+//     }
+//     return newObj;
+// }
+
+测试深拷贝对象
+let deepCopyObj = {
+    name:'cscs',
+    arr:[1,2,3,1,1],
+    fn:function(){
+        console.log('hi我是深拷贝前的函数');
+    },
+    obj:{
+        ONE:1,
+        TWO:{
+            one:1
+        }
+        }    
+}
+
 function deepCopy(obj){
     let newObj = null;
-    if(typeof(obj)=='object' && obj !== null){
-        newObj = Array.isArray(obj)?[]:{};
-        for(key in obj){
+    if(typeof obj =='object' && typeof obj != null){
+        newObj =  Array.isArray(obj)?[]:{};
+
+        for(let key in obj){
             newObj[key] = deepCopy(obj[key])
         }
     }else{
-      newObj = obj;
+        newObj = obj
     }
+
     return newObj;
 }
-
-//测试深拷贝对象
-// let deepCopyObj = {
-//     name:'cscs',
-//     arr:[1,2,3,1,1],
-//     fn:function(){
-//         console.log('hi我是深拷贝前的函数');
-//     },
-//     obj:{
-//         ONE:1,
-//         TWO:{
-//             one:1
-//         }
-//         }    
-// }
 
 function SumReduceFun(a){
     console.log(arguments);
@@ -56,12 +71,40 @@ function arrDeleteRepeatFun(arr){
     return Array.from(new Set(arr))  
 }
 
+function fangdou(fn,s){
+    let time = null;
+    return function(){
+        if(time){
+            clearTimeout(time);
+        }
+    
+        time = setTimeout(()=>{
+            fn();
+        },1000*s)
+    }
+}
+
+function jieliu(fn,s){
+    let vaild = true;
+    return function(){
+        if(vaild){
+            vaild = false;
+            setTimeout(()=>{
+                vaild = true;
+                fn()
+            },1000*s)
+        }
+    }
+    
+}
+
 
 //翻转字符串
 function reverseString(str){
     // return str.split('').reverse().join('')
      return [...str].reduce((a,v) => v+a)
 }
+
 
 
 //防抖
@@ -101,6 +144,8 @@ function newFun(fun,...rest){
     fun.call(obj,...rest)
     return obj
 }
+
+
 
 
 
