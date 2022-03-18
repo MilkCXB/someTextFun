@@ -2,45 +2,23 @@
 
 let str = "adcbbca";
 
-let targetArr =  [...str]
+let targetArr =  []
 
 function output(str){
     let arr = [...str]
     for(let i = 0 ; i<arr.length;i++){
         
-        if(arrc[i] == arr[i+1]){
-            continue
+        if(arr[i] == targetArr[targetArr.length - 1]){
+            targetArr.pop();
         }else{
             targetArr.push(arr[i])
         }
     }
 
-    return targetArr
+    return targetArr.join('')
 }
 
-// function output(str){
-
- 
-//     console.log(1);
-//     for(let i = 0 ; i<arr.length;i++){
-        
-//         if(arr[i]==arr[i+1]){
-//            targetArr.splice(i,2)
-//            output(arr)
-//            break
-//         }
- 
-        
-        
-//     }
-
- 
-
-//     return targetArr
-// }
 
 
-
-
-console.log(output(str));
+console.log(output(str),444);
 

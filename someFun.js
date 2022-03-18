@@ -12,7 +12,7 @@
 //     return newObj;
 // }
 
-测试深拷贝对象
+// 测试深拷贝对象
 let deepCopyObj = {
     name:'cscs',
     arr:[1,2,3,1,1],
